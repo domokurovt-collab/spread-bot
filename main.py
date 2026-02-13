@@ -1,14 +1,11 @@
+import os
 import time
 import requests
 from datetime import datetime
-
-# ====== НАСТРОЙКИ ======
-BOT_TOKEN = "8438201286:AAHDBI-t3Uwjj2lJUR-FKGiB4FhZcuYNOeU"
-CHAT_ID = "7959141382"
-
-CHECK_INTERVAL = 5  # секунд (пока тест)
-# =======================
-
+# ===== настройки из переменных окружения =====
+BOT_TOKEN = os.getenv("BOT_TOKEN", "")
+CHAT_ID = os.getenv("CHAT_ID", "")
+CHECK_INTERVAL = int(os.getenv("CHECK_INTERVAL", "60"))  # секунд
 def send_telegram(text: str):
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
     payload = {
