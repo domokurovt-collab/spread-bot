@@ -5,7 +5,7 @@ from datetime import datetime
 # ===== настройки из переменных окружения =====
 BOT_TOKEN = os.getenv("BOT_TOKEN", "")
 CHAT_ID = os.getenv("CHAT_ID", "")
-CHECK_INTERVAL = int(os.getenv("CHECK_INTERVAL", "60"))  # секунд
+CHECK_INTERVAL = int(os.getenv("CHECK_INTERVAL") or 60)  # секунд
 def send_telegram(text: str):
     url = f"https://api.telegram.org/bot{BOT_TOKEN}/sendMessage"
     payload = {
